@@ -11,8 +11,11 @@
                   <h1>{{ course.course_name }}</h1>
                   <h2>{{ course.course_desc }}</h2>
                   <h3>{{ course.course_price }}</h3>
+                  <a href="{% url 'food:delete_course' course.id %}">Delete</a>
             </div>
       </div>
 </div>
+
+
 
 {% endblock %}
