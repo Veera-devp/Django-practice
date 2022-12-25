@@ -1,8 +1,44 @@
-{% for course in course_list %}
+{% extends 'food/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Courses List</title>
+
+</head>
+<body>
+      
+      {% block body %}
+      <br/>
+      {% for course in course_list %}
+            <div class="row">
+                  <div class="col-md-3 offset-md-2">
+                        <img height="200px" class="card"  src="{{course.course_image}}"/>
+                  </div>
+                  <div class="col-md-4">
+                        <h3>{{ course.course_name }}</h3>
+                        <h5>{{ course.course_desc }}</h5>
+                        <h6>${{ course.course_price }}</h6>
+                  </div>
+                  <div class="col-md-2">
+                        <a href="{% url 'food:detail' course.id %}" class="btn btn-success">Details</a>
+                  </div>
+            </div>
+
+
+      {% endfor %}
+      {% endblock %}
+      
+      this is the old code
+      
       <ul>
             <li>
-                  
-                  <a href="{% url 'food:detail' course.id %}">{{ course.id }} -- {{ course.course_name }}</a>
+                  <a href="">{{ course.id }} -- {{ course.course_name }}</a>
             </li>
       </ul>
-{% endfor %}
+
+</body>
+</html>
